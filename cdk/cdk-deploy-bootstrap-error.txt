@@ -1,0 +1,39 @@
+cdk deploy                                                                                                  ──(Thu,Jun20)─┘
+INFO:Found /Users/emiliano.roberti/code/accenture/delta-v-0.1-cdk-infra/src/lambdas/booking/handler.ts
+
+✨  Synthesis time: 3.57s
+
+delta-v-booking-lambda-stack:  start: Building 29943ed0892a5cc441ee340259eb16d6f688cca3c9a50c10f25f1f604dd3a408:current_account-current_region
+delta-v-booking-lambda-stack:  success: Built 29943ed0892a5cc441ee340259eb16d6f688cca3c9a50c10f25f1f604dd3a408:current_account-current_region
+delta-v-booking-lambda-stack:  start: Publishing 29943ed0892a5cc441ee340259eb16d6f688cca3c9a50c10f25f1f604dd3a408:current_account-current_region
+delta-v-booking-lambda-stack:  fail: No bucket named 'cdk-hnb659fds-assets-[my account id]-us-east-1'. Is account [my account id] bootstrapped?
+
+ ❌ Deployment failed: Error: Failed to publish asset 29943ed0892a5cc441ee340259eb16d6f688cca3c9a50c10f25f1f604dd3a408:current_account-current_region
+    at Deployments.publishSingleAsset (/Users/emiliano.roberti/.nvm/versions/node/v20.10.0/lib/node_modules/aws-cdk/lib/index.js:434:11655)
+    at async Object.publishAsset (/Users/emiliano.roberti/.nvm/versions/node/v20.10.0/lib/node_modules/aws-cdk/lib/index.js:434:194678)
+    at async /Users/emiliano.roberti/.nvm/versions/node/v20.10.0/lib/node_modules/aws-cdk/lib/index.js:434:178826
+
+Failed to publish asset 29943ed0892a5cc441ee340259eb16d6f688cca3c9a50c10f25f1f604dd3a408:current_account-current_region
+┌─(~/code/accenture/delta-v-0.1-cdk-infra)────────────────────────────────────────────────────────────────────────(emiliano.roberti@AMAD29TF67TX9:s035)─┐
+└─(16:01:44 on main ✖ ✹ ✭)──> aws configure                                                                                           1 ↵ ──(Thu,Jun20)─┘
+AWS Access Key ID [****************KAM6]: 
+AWS Secret Access Key [****************zaaK]: 
+Default region name [us-east-1]: 
+Default output format [json]: 
+┌─(~/code/accenture/delta-v-0.1-cdk-infra)────────────────────────────────────────────────────────────────────────(emiliano.roberti@AMAD29TF67TX9:s035)─┐
+└─(16:03:44 on main ✖ ✹ ✭)──> aws cloudformation delete-stack --stack-name CDKToolkit --profile default                                   ──(Thu,Jun20)─┘
+┌─(~/code/accenture/delta-v-0.1-cdk-infra)────────────────────────────────────────────────────────────────────────(emiliano.roberti@AMAD29TF67TX9:s035)─┐
+└─(16:11:32 on main ✖ ✹ ✭)──> cdk bootstrap                                                                                               ──(Thu,Jun20)─┘
+INFO:Found /Users/emiliano.roberti/code/accenture/delta-v-0.1-cdk-infra/src/lambdas/booking/handler.ts
+ ⏳  Bootstrapping environment aws://432599188850/us-east-1...
+Trusted accounts for deployment: (none)
+Trusted accounts for lookup: (none)
+Using default execution policy of 'arn:aws:iam::aws:policy/AdministratorAccess'. Pass '--cloudformation-execution-policies' to customize.
+CDKToolkit: creating CloudFormation changeset...
+ ✅  Environment aws://432599188850/us-east-1 bootstrapped.
+
+┌─(~/code/accenture/delta-v-0.1-cdk-infra)──────────────────────────────────────────────────────────────
+
+:::::NOTE:::::
+My cdk deploy did not work, so i used this command to fix the boostrap problem and reset the CDKToolkit for my account
+aws cloudformation delete-stack --stack-name CDKToolkit --profile default 
